@@ -6,7 +6,7 @@ macro(CommonTargetLink)
 endmacro(CommonTargetLink)
 
 macro(IncludeEigen)
-    include_directories(${AIRSIM_ROOT}/AirLib/deps/eigen3)
+    include_directories(${EIGEN3_INCLUDE_DIR})
 endmacro(IncludeEigen)
 
 macro(AddExecutableSource)
@@ -63,7 +63,7 @@ macro(CommonSetup)
                 -std=c++14 -ggdb -Wall -Wextra -Wstrict-aliasing -Wunreachable-code -Wcast-qual -Wctor-dtor-privacy \
                 -Wdisabled-optimization -Wformat=2 -Winit-self -Wmissing-include-dirs -Wswitch-default \
                 -Wold-style-cast -Woverloaded-virtual -Wredundant-decls -Wshadow -Wstrict-overflow=5 -Wswitch-default -Wundef \
-                -Wno-variadic-macros -Wno-parentheses -Wno-unused-function -Wno-unused -Wno-documentation -fdiagnostics-show-option -ferror-limit=10 \
+                -Wno-variadic-macros -Wno-parentheses -Wno-unused-function -Wno-unused -Wno-documentation -fdiagnostics-show-option \
                 -pthread \
                 ${RPC_LIB_DEFINES} ${CMAKE_CXX_FLAGS}")
 
@@ -76,7 +76,7 @@ macro(CommonSetup)
 
                 # removed -lsupc++ from below (Git issue # 678)
                 set(CMAKE_EXE_LINKER_FLAGS "\
-                    ${CMAKE_EXE_LINKER_FLAGS} -stdlib=libc++ -lc++ -lc++abi -lm -lc \
+                    ${CMAKE_EXE_LINKER_FLAGS} -lc++ -lm -lc \
                     -L ${LIBCXX_LIB_PATH} -rpath ${LIBCXX_LIB_PATH}")
 
                 #do not use experimental as it might potentially cause ABI issues

@@ -4,6 +4,7 @@ project(MavLinkTest)
 LIST(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/../cmake-modules") 
 INCLUDE("${CMAKE_CURRENT_LIST_DIR}/../../cmake-modules/CommonSetup.cmake")
 CommonSetup()
+IncludeEigen()
 
 SetupConsoleBuild()
 
@@ -17,4 +18,4 @@ include_directories(
     file(GLOB_RECURSE PROJECT_CPP "${AIRSIM_ROOT}/MavLinkCom/${PROJECT_NAME}/*.cpp")
     add_executable(${PROJECT_NAME} ${PROJECT_CPP})
 			
-target_link_libraries(${PROJECT_NAME} ${CMAKE_THREAD_LIBS_INIT} MavLinkCom c++abi ${CXX_EXP_LIB})
+target_link_libraries(${PROJECT_NAME} ${CMAKE_THREAD_LIBS_INIT} MavLinkCom) # ${CXX_EXP_LIB})

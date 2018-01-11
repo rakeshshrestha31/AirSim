@@ -69,19 +69,19 @@ MAVLINK_HELPER void mavlink_dcm_to_euler(const float dcm[3][3], float* roll, flo
     float phi, theta, psi;
     theta = asin(-dcm[2][0]);
 
-    if (fabsf(theta - (float)M_PI_2) < 1.0e-3f) {
+    if (fabs(theta - (float)M_PI_2) < 1.0e-3f) {
         phi = 0.0f;
-        psi = (atan2f(dcm[1][2] - dcm[0][1],
+        psi = (atan2(dcm[1][2] - dcm[0][1],
                 dcm[0][2] + dcm[1][1]) + phi);
 
-    } else if (fabsf(theta + (float)M_PI_2) < 1.0e-3f) {
+    } else if (fabs(theta + (float)M_PI_2) < 1.0e-3f) {
         phi = 0.0f;
-        psi = atan2f(dcm[1][2] - dcm[0][1],
+        psi = atan2(dcm[1][2] - dcm[0][1],
                   dcm[0][2] + dcm[1][1] - phi);
 
     } else {
-        phi = atan2f(dcm[2][1], dcm[2][2]);
-        psi = atan2f(dcm[1][0], dcm[0][0]);
+        phi = atan2(dcm[2][1], dcm[2][2]);
+        psi = atan2(dcm[1][0], dcm[0][0]);
     }
 
     *roll = phi;
