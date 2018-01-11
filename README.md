@@ -1,3 +1,7 @@
+# About the fork
+
+This fork is adapted to work with gcc/g++ compilers instead of clang. It has been tested on Ubuntu 14.04.
+
 # Welcome to AirSim
 
 AirSim is a simulator for drones, cars and more built on Unreal Engine. It is open-source, cross platform and supports hardware-in-loop with popular flight controllers such as PX4 for physically and visually realistic simulations. It is developed as an Unreal plugin that can simply be dropped in to any Unreal environment you want.
